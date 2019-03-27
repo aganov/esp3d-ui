@@ -1,0 +1,9 @@
+@import "bootstrap";
+
+.card {
+  .table thead, table tr:first-child {
+    th, td {
+      border-top: none;
+    }
+  }
+}
