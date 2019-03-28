@@ -5,15 +5,15 @@ export default store => {
     z: 0.0
   }))
 
-  store.on("positions/updateX", (event, position) => {
-    return { x: position }
+  store.on("positions/updateX", ({ x }, distance) => {
+    return { x: x + parseFloat(distance) }
   })
 
-  store.on("positions/updateY", (event, position) => {
-    return { y: position }
+  store.on("positions/updateY", ({ y }, distance) => {
+    return { y: y + parseFloat(distance) }
   })
 
-  store.on("positions/updateZ", (event, position) => {
-    return { z: position }
+  store.on("positions/updateZ", ({ z }, distance) => {
+    return { z: z + parseFloat(distance) }
   })
 }

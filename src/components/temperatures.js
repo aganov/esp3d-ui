@@ -4,7 +4,7 @@ import connect from "storeon/preact"
 const Temperatures = ({ temperatures, dispatch }) => {
   const items = temperatures.map(temperature => {
     return(
-      <tr>
+      <tr key={temperature.key}>
         <td>{temperature.key}</td>
         <td>{temperature.value}</td>
         <td>

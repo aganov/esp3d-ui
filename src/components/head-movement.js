@@ -1,16 +1,20 @@
 import { h } from "preact"
+import { useEffect } from "preact/hooks"
 import { ChevronLeft, ChevronRight, AlertTriangle } from "preact-feather"
+import connect from "storeon/preact"
 
-const HeadMovement = () => {
+const HeadMovement = ({ dispatch }) => {
   const homeButtons = ["All", "X", "Y", "Z"].map(axis => <a href="javascript:;" className="btn btn-primary">Home {axis}</a>)
   const createButtonsGroup = (axis, direction) => {
-    let distances = [10, 1, 0.1]
-
-    const label = distance => direction < 0
-      ? <span><ChevronLeft size={18} /> {axis}-{distance}</span>
+    const distances = [0.1, 1, 10]
+    const label = distance => distance < 0
+      ? <span><ChevronLeft size={18} /> {axis}{distance}</span>
       : <span>{axis}+{distance} <ChevronRight size={18} /> </span>
 
-    const buttons = distances.map(distance => <a href="javascript:;" className="btn btn-secondary">{label(distance)}</a>)
+    const buttons = (direction < 0 ? distances.map(distance => -(distance)).reverse() : distances).map(distance =>
+      <a href="javascript:;" className="btn btn-secondary" onClick={() => dispatch("positions/update" + axis, distance)}>{label(distance)}</a>
+    )
+
     return <div className="btn-group d-block mb-2">{buttons}</div>
   }
 
@@ -41,4 +45,4 @@ const HeadMovement = () => {
   )
 }
 
-export default HeadMovement
+export default connect(HeadMovement)

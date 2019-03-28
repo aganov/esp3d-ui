@@ -15,9 +15,9 @@ const MachineStatus = ({ x, y, z, dispatch }) => {
               <th>Z</th>
             </tr>
             <tr>
-              <td>{x}</td>
-              <td>{y}</td>
-              <td>{z}</td>
+              <td>{Number((x).toFixed(2))}</td>
+              <td>{Number((y).toFixed(2))}</td>
+              <td>{Number((z).toFixed(2))}</td>
             </tr>
             <tr>
               <th rowspan="2" className="align-middle">Extruder Drives</th>
