@@ -9,6 +9,8 @@ const devMode = process.env.NODE_ENV !== "production"
 
 const config = {
   inlineSource: ".(js|css)$",
+  template: "./src/index.html",
+  filename: "./index.html",
   minify: true,
   inject: true,
   hash: devMode ? true : false

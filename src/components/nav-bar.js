@@ -1,7 +1,7 @@
 import { h } from "preact"
 import { LogOut, Send } from "preact-feather"
 
-const NavBar = () => (
+export default () => (
   <div>
     <header className="navbar navbar-light bg-light justify-content-between">
       <a href="#" className="btn btn-success">Disconnect <LogOut size={18} /></a>
@@ -16,5 +16,3 @@ const NavBar = () => (
     </header>
   </div>
 )
-
-export default NavBar

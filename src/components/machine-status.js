@@ -1,7 +1,9 @@
 import { h } from "preact"
-import connect from "storeon/preact"
+import useStoreon from "storeon/preact"
 
-const MachineStatus = ({ x, y, z, dispatch }) => {
+export default () => {
+  const { x, y, z, dispatch } = useStoreon("x", "y", "z")
+
   return (
     <div>
       <div className="card">
@@ -32,5 +34,3 @@ const MachineStatus = ({ x, y, z, dispatch }) => {
     </div>
   )
 }
-
-export default connect("x", "y", "z", MachineStatus)

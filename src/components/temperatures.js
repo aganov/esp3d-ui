@@ -1,7 +1,9 @@
 import { h } from "preact"
-import connect from "storeon/preact"
+import useStoreon from "storeon/preact"
 
-const Temperatures = ({ temperatures, dispatch }) => {
+export default () => {
+  const { temperatures } = useStoreon("temperatures")
+
   const items = temperatures.map(temperature => {
     return(
       <tr key={temperature.key}>
@@ -39,5 +41,3 @@ const Temperatures = ({ temperatures, dispatch }) => {
     </div>
   )
 }
-
-export default connect("temperatures", Temperatures)

@@ -5,29 +5,35 @@ import HeadMovement from "./head-movement"
 
 import { h } from "preact"
 import { useInterval } from "../libraries/hooks"
-import connect from "storeon/preact"
+import useStoreon from "storeon/preact"
 
-const App = (store) => {
+export default () => {
   // This should be polled from websocket for example
+  const { dispatch } = useStoreon()
+
   useInterval(() => {
     const tempKeys = ["T1", "B"]
-    tempKeys.forEach(key => store.dispatch("temperatures/update", { key, value: Math.floor(Math.random() * 215) }))
+    tempKeys.forEach(key => dispatch("temperatures/update", { key, value: Math.floor(Math.random() * 215) }))
   }, 1000)
 
-  return(
+  return (
     <div>
       <NavBar />
       <div className="container">
         <div className="row mt-3">
-          <div className="col-md-6"><Temeratures /></div>
-          <div className="col-md-6"><MachineStatus /></div>
+          <div className="col-md-6">
+            <Temeratures />
+          </div>
+          <div className="col-md-6">
+            <MachineStatus />
+          </div>
         </div>
         <div className="row">
-          <div class="col-md-12 mt-2"><HeadMovement /></div>
+          <div class="col-md-12 mt-2">
+            <HeadMovement />
+          </div>
         </div>
       </div>
     </div>
   )
 }
-
-export default connect(App)

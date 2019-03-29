@@ -1,7 +1,8 @@
 import { h, render } from "preact"
 import App from "./components/app"
-import { store } from "./store/index"
-import { StoreContext } from "storeon/preact"
+import store  from "./store"
+import StoreContext from "storeon/preact/context"
+
 import "./stylesheets/application.scss"
 
 render(

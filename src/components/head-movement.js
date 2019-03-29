@@ -1,9 +1,11 @@
 import { h } from "preact"
-import { useEffect } from "preact/hooks"
 import { ChevronLeft, ChevronRight, AlertTriangle } from "preact-feather"
-import connect from "storeon/preact"
+import { useEffect } from "preact/hooks"
+import useStoreon from "storeon/preact"
 
-const HeadMovement = ({ dispatch }) => {
+export default () => {
+  const { dispatch } = useStoreon()
+
   const homeButtons = ["All", "X", "Y", "Z"].map(axis => <a href="javascript:;" className="btn btn-primary">Home {axis}</a>)
   const createButtonsGroup = (axis, direction) => {
     const distances = [0.1, 1, 10]
@@ -44,5 +46,3 @@ const HeadMovement = ({ dispatch }) => {
     </div>
   )
 }
-
-export default connect(HeadMovement)
