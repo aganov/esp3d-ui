@@ -1,16 +1,17 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const WebpackModules = require("webpack-modules")
+import { environmentPlugins, optimizationPlugins } from "./plugins"
+import MiniCssExtractPlugin from "mini-css-extract-plugin"
+const devMode = process.env.NODE_ENV !== "production"
 
 module.exports = {
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "postcss-loader" },
-          { loader: "sass-loader" }
+          { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader, options: { sourceMap: devMode } },
+          { loader: "css-loader", options: { sourceMap: devMode } },
+          { loader: "postcss-loader", options: { sourceMap: devMode } },
+          { loader: "sass-loader", options: { sourceMap: devMode } }
         ]
       },
       {
@@ -22,12 +23,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new WebpackModules(),
-    new HtmlWebPackPlugin({
-      inlineSource: ".(js|css)$",
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
-  ]
+  optimization: optimizationPlugins,
+  plugins: environmentPlugins
 }

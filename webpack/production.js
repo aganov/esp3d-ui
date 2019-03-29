@@ -1,9 +1,7 @@
-const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin")
-const merge = require("webpack-merge")
-const environment = require("./environment.js")
+import merge from "webpack-merge"
+import environment from "./environment"
+import { productionPlugins } from "./plugins"
 
 module.exports = merge(environment, {
-  plugins: [
-    new HtmlWebpackInlineSourcePlugin()
-  ]
+  plugins: productionPlugins
 })
