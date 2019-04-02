@@ -21,27 +21,25 @@ export default () => {
   }
 
   return (
-    <div>
-      <div className="card">
-        <div className="card-header">Head Movement</div>
-        <div className="card-body">
-          <div className="text-center">
-            <div className="btn-group btn-group-justified">{homeButtons}</div>
-          </div>
-          <div className="row mt-3">
-            <div className="col-md-6 text-right">
-              {createButtonsGroup("X", -1)}
-              {createButtonsGroup("Y", -1)}
-              {createButtonsGroup("Z", -1)}
-            </div>
-            <div className="col-md-6">
-              {createButtonsGroup("X", 1)}
-              {createButtonsGroup("Y", 1)}
-              {createButtonsGroup("Z", 1)}
-            </div>
-          </div>
-          <div className="alert alert-warning"><AlertTriangle size={18} />The following axes are not homed <strong>X, Y, Z</strong></div>
+    <div className="card">
+      <div className="card-header">Head Movement</div>
+      <div className="card-body">
+        <div className="text-center">
+          <div className="btn-group btn-group-justified">{homeButtons}</div>
         </div>
+        <div className="row mt-3">
+          <div className="col-md-6 text-right">
+            {createButtonsGroup("X", -1)}
+            {createButtonsGroup("Y", -1)}
+            {createButtonsGroup("Z", -1)}
+          </div>
+          <div className="col-md-6">
+            {createButtonsGroup("X", 1)}
+            {createButtonsGroup("Y", 1)}
+            {createButtonsGroup("Z", 1)}
+          </div>
+        </div>
+        <div className="alert alert-warning"><AlertTriangle size={18} />The following axes are not homed <strong>X, Y, Z</strong></div>
       </div>
     </div>
   )

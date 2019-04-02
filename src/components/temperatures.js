@@ -24,20 +24,18 @@ export default () => {
   })
 
   return (
-    <div>
-      <div className="card">
-        <div className="card-header">Heater Temperatures</div>
-        <table className="table">
-          <thead>
-            <th></th>
-            <th>Current</th>
-            <th>Active</th>
-          </thead>
-          <tbody>
-            {items}
-          </tbody>
-        </table>
-      </div>
+    <div className="card">
+      <div className="card-header">Heater Temperatures</div>
+      <table className="table">
+        <thead>
+          <th></th>
+          <th>Current</th>
+          <th>Active</th>
+        </thead>
+        <tbody>
+          {items}
+        </tbody>
+      </table>
     </div>
   )
 }

@@ -15,6 +15,7 @@
     "bootstrap": "^4.3.1",
     "preact": "^10.0.0-alpha.2",
     "preact-feather": "^3.2.0",
+    "preact-router": "^3.0.0",
     "storeon": "^0.5.0"
   },
   "devDependencies": {
