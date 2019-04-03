@@ -1,9 +1,11 @@
+@import "functions";
+@import "vars";
 @import "bootstrap";
+@import "components/card";
+@import "components/navbar";
+@import "components/sidebar";
 
-.card {
-  .table thead, table tr:first-child {
-    th, td {
-      border-top: none;
-    }
-  }
+body {
+  overflow-x: hidden;
+  font-size: 1rem;
 }

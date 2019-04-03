@@ -21,9 +21,9 @@ export default () => {
   }
 
   return (
-    <div className="card">
-      <div className="card-header">Head Movement</div>
+    <div className="card card-shadow">
       <div className="card-body">
+        <h4 className="card-title">Head Movement</h4>
         <div className="text-center">
           <div className="btn-group btn-group-justified">{homeButtons}</div>
         </div>

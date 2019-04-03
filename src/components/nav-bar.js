@@ -3,9 +3,6 @@ import { useState } from "preact/hooks"
 import { Link } from "preact-router/match"
 import { Menu } from "preact-feather"
 
-const NavBrand = props => (
-  <Link className="navbar-brand" href={props.linkTo}>{props.text}</Link>
-)
 
 const NavItem = props => (
   <li className={"nav-item " + (props.active ? "active" : "")}>
@@ -19,8 +16,7 @@ export default () => {
   const [collapsed, setCollapsed] = useState(false)
 
   return(
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <NavBrand linkTo="/" text="Esp3D" />
+    <nav className="navbar navbar-expand-lg navbar-light navbar-shadow bg-white">
       <button className="navbar-toggler" type="button" onClick={() => setCollapsed(!collapsed)}>
         <Menu />
       </button>

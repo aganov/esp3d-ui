@@ -1,4 +1,4 @@
-import { h, Fragment } from "preact"
+import { h } from "preact"
 import { useInterval } from "../libraries/hooks"
 import useStoreon from "storeon/preact"
 
@@ -6,6 +6,7 @@ import Dashboard from "./dashboard"
 import NavBar from "./nav-bar"
 import Router from "preact-router"
 import Settings from "./settings"
+import SideBar from "./side-bar"
 
 export default () => {
   // This should be polled from websocket for example
@@ -17,14 +18,17 @@ export default () => {
   }, 1000)
 
   return (
-    <>
-      <NavBar />
-      <div className="container">
-        <Router>
-          <Dashboard path="/" />
-          <Settings path="/settings" />
-        </Router>
+    <div className="d-flex" id="wrapper">
+      <SideBar />
+      <div id="page-content-wrapper">
+        <NavBar />
+        <div className="container-fluid">
+          <Router>
+            <Dashboard path="/" />
+            <Settings path="/settings" />
+          </Router>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
