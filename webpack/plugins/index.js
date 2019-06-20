@@ -4,7 +4,6 @@ import htmlWebpackPlugin from "./html-webpack-plugin"
 import miniCssExtractPlugin from "./mini-css-extract-plugin"
 import optimizeCSSAssetsPlugin from "./optimize-css-assets-webpack-plugin"
 import terserPlugin from "./terser-plugin"
-import webpackModulesPlugin from "./webpack-modules-plugin"
 
 export const optimizationPlugins = {
   minimizer: [
@@ -15,7 +14,6 @@ export const optimizationPlugins = {
 
 export const environmentPlugins = [
   miniCssExtractPlugin(),
-  webpackModulesPlugin(),
   htmlWebpackPlugin()
 ]
 
